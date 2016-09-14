@@ -73,7 +73,7 @@ class SelectByRegexAll(SelectByRegexBase):
 				while True:
 					m = self.rx.search(self.text, self.start, r.b)
 					if m and self.start != m.end():
-						if len(m.groups()) > 1:
+						if len(m.groups()):
 							self.mark_groups(m)
 						else:
 							self.inner_regions.append(sublime.Region(m.start(), m.end()))
@@ -84,7 +84,7 @@ class SelectByRegexAll(SelectByRegexBase):
 			while True:
 				m = self.rx.search(self.text, self.start)
 				if m and self.start != m.end():
-					if len(m.groups()) > 1:
+					if len(m.groups()):
 						self.mark_groups(m)
 					else:
 						self.inner_regions.append(sublime.Region(m.start(), m.end()))
